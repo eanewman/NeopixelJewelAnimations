@@ -114,8 +114,7 @@ void explosion(uint32_t color) {
 
 // Tinker with your animations
 // - experiment with different brightness values to create neat effects in your animations!
-// - try modifying an animation to take in an array of colors 
-//   (try the RAINBOW array defined above or define your own array)
+// - try modifying an animation to take in an array of colors (try the RAINBOW array defined above or define your own array)
 // - try modifying the speeds of your animations
 // - mix and match different animations in the main execution loop()
 
