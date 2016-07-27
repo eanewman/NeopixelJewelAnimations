@@ -187,7 +187,7 @@ void rainbowFireworks(long wait) {
   for (uint8_t numFlashes = 0; numFlashes < 4; numFlashes++) {
     centerBlink(RAINBOW[0], wait/2);
   }
-  for (uint8_t numFlashes = 0; numFlashes < 50; numFlashes++) {
+  for (uint8_t numFlashes = 0; numFlashes < 10; numFlashes++) {
     // every other
     uint32_t colorsFirst[7] = {0, RAINBOW[1], 0, RAINBOW[3], 0, RAINBOW[5], 0};
     setColors(colorsFirst, wait);
@@ -196,6 +196,7 @@ void rainbowFireworks(long wait) {
     uint32_t colorsSecond[7] = {0, 0, RAINBOW[2], 0, RAINBOW[4], 0, RAINBOW[6]};
     setColors(colorsSecond, wait);
   }
+  setColors(ALL_OFF, wait);
 }
 
 void centerBlink(uint32_t color, long wait) {
