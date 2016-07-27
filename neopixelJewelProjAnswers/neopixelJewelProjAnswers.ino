@@ -43,7 +43,7 @@ void loop() {
 
   // call your animations here to make them run!
 
-  // sample heartbeat getting faster -> explosion animation
+  // sample animation: heartbeat getting faster -> explosion!
   heartbeat(PINK, 500);
   heartbeat(PINK, 400);
   heartbeat(PINK, 300);
@@ -112,14 +112,14 @@ void heartbeat(uint32_t color, long delayTimeInMs) {
 // -------------------------------------------------------------------------------------
 // III. Explosion!
 
-// 1. Blink the center pixel to simulate the initial part of an explosion
+// 1. Blink the center pixel to animate the initial part of an explosion
 void centerBlink(uint32_t color, long delayTimeInMs) {
   uint32_t centerOnly[7] = {color, OFF, OFF, OFF, OFF, OFF, OFF};
   setPixelColors(centerOnly, delayTimeInMs);
   setPixelColors(ALL_OFF, delayTimeInMs);
 }
 
-// 2. Make the outer pixels "sparkle" to simulate the end of the explosion:
+// 2. Make the outer pixels blink alternately to animate the end of the explosion:
 //    - blink every other pixel on the outer ring, once
 //    - blink all the remaining pixels on the outer ring, once
 void ringAlternateBlink(uint32_t color, long delayTimeInMs) {
