@@ -17,12 +17,13 @@ const uint32_t ORANGE = jewel.Color(255, 165, 0);
 const uint32_t PURPLE = jewel.Color(91, 44, 86);
 const uint32_t INDIGO = jewel.Color(75, 0, 130);
 const uint32_t VIOLET = jewel.Color(238, 130, 238);
+const uint32_t OFF = 0;
 // add more colors here! 
 // use http://www.colorpicker.com/ to find RGB values for a color using a color wheel
 // use http://cloford.com/resources/colours/500col.htm to find the RGB values for a color by name
 
 // jewel "frame" states
-const uint32_t ALL_OFF[7] = {0, 0, 0, 0, 0, 0, 0};
+const uint32_t ALL_OFF[7] = {OFF, OFF, OFF, OFF, OFF, OFF, OFF};
 const uint32_t RAINBOW[7] = {VIOLET, RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO};
 // add more frame states here!
 
@@ -41,7 +42,7 @@ void loop() {
   jewel.setBrightness(10);
 
   // call your animations here to make them run!
-  
+
 }
 // *************************************************************************************
 
@@ -49,33 +50,50 @@ void loop() {
 // -------------------------------------------------------------------------------------
 // I. Warm up
 
-// 1. All on
-void allOn(uint32_t color) {
-  // Fill in the code to turn all the pixels the color that was passed in!
+// 1. Turn all pixels on using the color passed in
+void setPixelsSingleColor(uint32_t color) {
+  
 }
 
-// 2. Make all the pixels blink
+// 2. Make all the pixels blink once using allOn()
 void allBlink(uint32_t color, long delayTimeInMs) {
-  // Fill in the code to blink the pixels!
+  
 }
 
-// 3. Set the Jewel's pixel colors (utility function that's useful for building more complicated animations)
+// 3. Display a single frame of an animation (utility function that's useful for building more complicated animations)
 //    - set all of the colors on the neopixel using the colors array parameter
 //    - pause for the amount of time given by the delayTimeInMs parameter
 void setPixelColors(uint32_t colors[], long delayTimeInMs) {
   
 }
 
+// 4. Example function using setPixelColors()
+// Sends a color from one side of the jewel, through the middle, to the other side.
+// Try calling this function in the main execution loop!
+void wave(uint32_t color, long wait) {
+  // set pixels 1, 2
+  uint32_t firstStripeColors[7] = {OFF, color, color, OFF, OFF, OFF, OFF};
+  setPixelColors(firstStripeColors, wait);
+
+  // pixels 0, 3, 6
+  uint32_t secondStripeColors[7] = {color, OFF, OFF, color, OFF, OFF, color};
+  setPixelColors(secondStripeColors, wait);
+
+  // pixels 4, 5
+  uint32_t thirdStripeColors[7] = {OFF, OFF, OFF, OFF, color, color, OFF};
+  setPixelColors(thirdStripeColors, wait);
+}
+
 
 // -------------------------------------------------------------------------------------
 // II. Heartbeat
 
-// 1. Display a heart shape with the pixels and make them blink
+// 1. Display a heart shape with the pixels and make them blink once
 void heartBlink(uint32_t color, long delayTimeInMs) {
   
 }
 
-// 2. Simulate a heartbeat using heartBlink()!
+// 2. Use the heartBlink() function to simulate a heartbeat (two beats at half speed with a pause at the end)
 void heartbeat(uint32_t color, long delayTimeInMs) {
   
 }
@@ -84,37 +102,36 @@ void heartbeat(uint32_t color, long delayTimeInMs) {
 // -------------------------------------------------------------------------------------
 // III. Explosion!
 
-// 1. Blink the center pixel to simulate the initial part of an explosion
+// 1. Blink the center pixel to animate the initial part of an explosion
 void centerBlink(uint32_t color, long delayTimeInMs) {
   
 }
 
-// 2. Make the outer pixels "sparkle" to simulate the end of the explosion:
-//    - blink every other pixel on the outer ring, once
-//    - blink all the remaining pixels on the outer ring, once
-void ringAlternateBlink(uint32_t color, long delayTimeInMs) {
+// 2. Make the outer pixels blink alternately to animate the end of the explosion
+//    - blink 3 alternating pixels on the outer ring, once
+//    - blink the remaining 3 pixels on the outer ring, once
+void alternateBlink(uint32_t color, long delayTimeInMs) {
   
 }
 
-// 3. use (1) and (2) to create an explosion animation!
+// 3. Use centerBlink() and alternateBlink() to create an explosion animation!
 void explosion(uint32_t color) {
   
 }
 
 
 // -------------------------------------------------------------------------------------
-// other things to try!
+// Other things to try!
 
 // Tinker with your animations
-// - experiment with different brightness values to create neat effects in your animations!
-// - try modifying an animation to take in an array of colors (try the RAINBOW array defined above or define your own array)
+// - experiment with changing brightness values during your animations!
 // - try modifying the speeds of your animations
 // - mix and match different animations in the main execution loop()
 
-// Create your own animations!! Some animation ideas:
+// Create your own animations!! Some ideas:
 // - blink a single pixel all the way around the ring of the jewel
 // - do the wave! start with any 2 adjacent pixels on the outside, then light up the 3 next to it, then the 2 on the other side
 // - tricolor wave: same as the one above, but with 3 colors that wrap after they move through the jewel to the other side
-// - rotate the RAINBOW array (or an array defined with your colors of choice) around the jewel ring
+// - rotate the RAINBOW array (or an array defined with your colors of choice) around the jewel ring (hint: the modulo operator helps!)
 
 

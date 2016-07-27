@@ -44,16 +44,16 @@ void loop() {
   // call your animations here to make them run!
 
   // sample animation: heartbeat getting faster -> explosion!
-  heartbeat(PINK, 500);
-  heartbeat(PINK, 400);
-  heartbeat(PINK, 300);
-  heartbeat(PINK, 250);
-  heartbeat(PINK, 200);
-  heartbeat(PINK, 150);
-  heartbeat(PINK, 100);
-  heartbeat(PINK, 50);
-  explosion(WHITE);
-  setPixelColors(ALL_OFF, 400);
+//  heartbeat(PINK, 500);
+//  heartbeat(PINK, 400);
+//  heartbeat(PINK, 300);
+//  heartbeat(PINK, 250);
+//  heartbeat(PINK, 200);
+//  heartbeat(PINK, 150);
+//  heartbeat(PINK, 100);
+//  heartbeat(PINK, 50);
+//  explosion(WHITE);
+//  setPixelColors(ALL_OFF, 400);
 }
 // *************************************************************************************
 
@@ -89,11 +89,28 @@ void setPixelColors(uint32_t colors[], long delayTimeInMs) {
   delay(delayTimeInMs);
 }
 
+// 4. Example function using setPixelColors()
+// Sends a color from one side of the jewel, through the middle, to the other side
+// Try calling this function in the main execution loop!
+void wave(uint32_t color, long wait) {
+  // set pixels 1, 2
+  uint32_t firstStripeColors[7] = {OFF, color, color, OFF, OFF, OFF, OFF};
+  setPixelColors(firstStripeColors, wait);
+
+  // pixels 0, 3, 6
+  uint32_t secondStripeColors[7] = {color, OFF, OFF, color, OFF, OFF, color};
+  setPixelColors(secondStripeColors, wait);
+
+  // pixels 4, 5
+  uint32_t thirdStripeColors[7] = {OFF, OFF, OFF, OFF, color, color, OFF};
+  setPixelColors(thirdStripeColors, wait);
+}
+
 
 // -------------------------------------------------------------------------------------
 // II. Heartbeat
 
-// 1. Display a heart shape with the pixels and make them blink
+// 1. Display a heart shape with the pixels and make them blink once
 void heartBlink(uint32_t color, long delayTimeInMs) {
   // note: pixel to omit varies based on orientation of jewel
   uint32_t colorsFirst[7] = {color, color, color, color, OFF, color, color};
@@ -101,7 +118,7 @@ void heartBlink(uint32_t color, long delayTimeInMs) {
   setPixelColors(ALL_OFF, delayTimeInMs);
 }
 
-// 2. Simulate a heartbeat using heartBlink()!
+// 2. Use the heartBlink() function to simulate a heartbeat (two beats at half speed with a pause at the end)
 void heartbeat(uint32_t color, long delayTimeInMs) {
   heartBlink(color, delayTimeInMs/2);
   heartBlink(color, delayTimeInMs/2);
@@ -119,10 +136,10 @@ void centerBlink(uint32_t color, long delayTimeInMs) {
   setPixelColors(ALL_OFF, delayTimeInMs);
 }
 
-// 2. Make the outer pixels blink alternately to animate the end of the explosion:
-//    - blink every other pixel on the outer ring, once
-//    - blink all the remaining pixels on the outer ring, once
-void ringAlternateBlink(uint32_t color, long delayTimeInMs) {
+// 2. Make the outer pixels blink alternately to animate the end of the explosion
+//    - blink 3 alternating pixels on the outer ring, once
+//    - blink the remaining 3 pixels on the outer ring, once
+void alternateBlink(uint32_t color, long delayTimeInMs) {
   uint32_t everyOther[7] = {OFF, color, OFF, color, OFF, color, OFF};
   setPixelColors(everyOther, delayTimeInMs);
 
@@ -130,20 +147,20 @@ void ringAlternateBlink(uint32_t color, long delayTimeInMs) {
   setPixelColors(theOtherEveryOther, delayTimeInMs);
 }
 
-// 3. use (1) and (2) to create an explosion animation!
+// 3. Use centerBlink() and alternateBlink() to create an explosion animation!
 void explosion(uint32_t color) {
   for (uint8_t iteration = 0; iteration < 4; iteration++) {
     centerBlink(color, 60);
   }
  
   for (uint8_t iteration = 0; iteration < 10; iteration++) {
-    ringAlternateBlink(color, 100);
+    alternateBlink(color, 100);
   }
 }
 
 
 // -------------------------------------------------------------------------------------
-// other things to try!
+// Other things to try!
 
 // Tinker with your animations
 // - experiment with changing brightness values during your animations!
