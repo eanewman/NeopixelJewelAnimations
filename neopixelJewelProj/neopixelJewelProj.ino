@@ -76,7 +76,7 @@ void heartBlink(uint32_t color, long delayTimeInMs) {
 }
 
 // 2. Simulate a heartbeat using heartBlink()!
-void heartBeat(uint32_t color, long delayTimeInMs) {
+void heartbeat(uint32_t color, long delayTimeInMs) {
   
 }
 
