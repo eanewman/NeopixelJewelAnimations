@@ -18,7 +18,7 @@ const uint32_t PURPLE = jewel.Color(91, 44, 86);
 const uint32_t INDIGO = jewel.Color(75, 0, 130);
 const uint32_t VIOLET = jewel.Color(238, 130, 238);
 // add more colors here! 
-// use http://www.colorpicker.com/ to find RGB values for a color on a color wheel
+// use http://www.colorpicker.com/ to find RGB values for a color using a color wheel
 // use http://cloford.com/resources/colours/500col.htm to find the RGB values for a color by name
 
 // jewel "frame" states
@@ -40,14 +40,14 @@ void loop() {
   // you can also tinker with different brightness values in your animations
   jewel.setBrightness(10);
 
-  // call your animations here to make them run in a loop!
+  // call your animations here to make them run!
   
 }
 // *************************************************************************************
 
 
 // -------------------------------------------------------------------------------------
-// I. Warm up!
+// I. Warm up
 
 // 1. All on
 void allOn(uint32_t color) {
@@ -59,23 +59,16 @@ void allBlink(uint32_t color, long delayTimeInMs) {
   // Fill in the code to blink the pixels!
 }
 
-
-// -------------------------------------------------------------------------------------
-// Utility function
-
-void setColors(uint32_t colors[], long delayTimeInMs) {
-  // set all of the colors on the neopixel using the colors array parameter
-  
-  // then pause for the amount of time given by the delayTimeInMs parameter
+// 3. Set the Jewel's pixel colors (utility function that's useful for building more complicated animations)
+//    - set all of the colors on the neopixel using the colors array parameter
+//    - pause for the amount of time given by the delayTimeInMs parameter
+void setPixelColors(uint32_t colors[], long delayTimeInMs) {
   
 }
-// This utility function will be useful when building more complicated animations 
-// - it will keep your code easy to read
-// - it will allow you to concentrate on your animation and not on how to display it
 
 
 // -------------------------------------------------------------------------------------
-// II. Heartbeat!
+// II. Heartbeat
 
 // 1. Display a heart shape with the pixels and make them blink
 void heartBlink(uint32_t color, long delayTimeInMs) {
@@ -89,7 +82,7 @@ void heartBeat(uint32_t color, long delayTimeInMs) {
 
 
 // -------------------------------------------------------------------------------------
-// Explosion!
+// III. Explosion!
 
 // 1. Blink the center pixel to simulate the initial part of an explosion
 void centerBlink(uint32_t color, long delayTimeInMs) {
