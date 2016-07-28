@@ -41,7 +41,7 @@ void loop() {
   // you can also tinker with different brightness values in your animations
   jewel.setBrightness(10);
 
-  // call your animations here to make them run!
+  // call your animations here!
 
 }
 // *************************************************************************************
@@ -93,7 +93,9 @@ void heartBlink(uint32_t color, long delayTimeInMs) {
   
 }
 
-// 2. Use the heartBlink() function to simulate a heartbeat (two beats at half speed with a pause at the end)
+// 2. Use the heartBlink() function to simulate a heartbeat 
+//    - two beats each lasting a third of the given delay time
+//    - pause
 void heartbeat(uint32_t color, long delayTimeInMs) {
   
 }
