@@ -3,7 +3,7 @@
 #define ARDUINO_PIN_NUMBER 6
 #define NUM_JEWEL_PIXELS 7
 
-// initialize neopixel jewel
+// initialize neopixel jewel object
 Adafruit_NeoPixel jewel = Adafruit_NeoPixel(NUM_JEWEL_PIXELS, ARDUINO_PIN_NUMBER, NEO_GRB + NEO_KHZ800);
 
 // colors 
@@ -50,7 +50,7 @@ void loop() {
 // -------------------------------------------------------------------------------------
 // I. Warm up
 
-// 1. Turn all pixels on using the color passed in
+// 1. Turn all pixels the color that was passed in
 void setPixelsSingleColor(uint32_t color) {
   
 }
@@ -60,28 +60,28 @@ void allBlink(uint32_t color, long delayTimeInMs) {
   
 }
 
-// 3. Display a single frame of an animation (utility function that's useful for building more complicated animations)
-//    - set all of the colors on the neopixel using the colors array parameter
+// 3. Display a single frame of an animation (this utility function will be useful for building more complicated animations)
+//    - set all of the colors on the neopixel using the colors parameter
 //    - pause for the amount of time given by the delayTimeInMs parameter
 void setPixelColors(uint32_t colors[], long delayTimeInMs) {
-  
+
 }
 
 // 4. Example function using setPixelColors()
 // Sends a color from one side of the jewel, through the middle, to the other side.
 // Try calling this function in the main execution loop!
-void wave(uint32_t color, long wait) {
+void wave(uint32_t color, long delayTimeInMs) {
   // set pixels 1, 2
   uint32_t firstStripeColors[7] = {OFF, color, color, OFF, OFF, OFF, OFF};
-  setPixelColors(firstStripeColors, wait);
+  setPixelColors(firstStripeColors, delayTimeInMs);
 
-  // pixels 0, 3, 6
+  // set pixels 0, 3, 6
   uint32_t secondStripeColors[7] = {color, OFF, OFF, color, OFF, OFF, color};
-  setPixelColors(secondStripeColors, wait);
+  setPixelColors(secondStripeColors, delayTimeInMs);
 
-  // pixels 4, 5
+  // set pixels 4, 5
   uint32_t thirdStripeColors[7] = {OFF, OFF, OFF, OFF, color, color, OFF};
-  setPixelColors(thirdStripeColors, wait);
+  setPixelColors(thirdStripeColors, delayTimeInMs);
 }
 
 
@@ -109,9 +109,9 @@ void centerBlink(uint32_t color, long delayTimeInMs) {
   
 }
 
-// 2. Make the outer pixels blink alternately to animate the end of the explosion
+// 2. Make the pixels blink alternately to animate the end of the explosion
 //    - blink 3 alternating pixels on the outer ring, once
-//    - blink the remaining 3 pixels on the outer ring, once
+//    - blink the remaining 3 pixels on the outer ring and the middle pixel, once
 void alternateBlink(uint32_t color, long delayTimeInMs) {
   
 }
@@ -123,17 +123,23 @@ void explosion(uint32_t color) {
 
 
 // -------------------------------------------------------------------------------------
-// Other things to try!
+// IV. Create an exploding heart animation! 
 
-// Tinker with your animations
+// Use your heartbeat() and explosion() functions in the main execution loop to create
+// a heartbeat that increases in tempo until it explodes!
+
+
+// -------------------------------------------------------------------------------------
+// Other things to try
+
+// Tinker with your animations:
 // - experiment with changing brightness values during your animations!
 // - try modifying the speeds of your animations
 // - mix and match different animations in the main execution loop()
 
-// Create your own animations!! Some ideas:
+// Create your own animations!! Here are some ideas:
 // - blink a single pixel all the way around the ring of the jewel
-// - do the wave! start with any 2 adjacent pixels on the outside, then light up the 3 next to it, then the 2 on the other side
-// - tricolor wave: same as the one above, but with 3 colors that wrap after they move through the jewel to the other side
+// - tricolor wave: same as the wave function above, but with 3 colors that wrap after they move through the jewel to the other side
 // - rotate the RAINBOW array (or an array defined with your colors of choice) around the jewel ring (hint: the modulo operator helps!)
 
 
