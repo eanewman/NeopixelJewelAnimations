@@ -20,7 +20,7 @@ const uint32_t VIOLET = jewel.Color(238, 130, 238);
 const uint32_t OFF = 0;
 // add more colors here! 
 // - find RGB values for a color using a color wheel: http://www.colorpicker.com/
-// - find the RGB values for a color by name: http://cloford.com/resources/colours/500col.htm
+// - find RGB values for a color by name: http://cloford.com/resources/colours/500col.htm
 
 // jewel "frame" states
 uint32_t ALL_OFF[7] = {OFF, OFF, OFF, OFF, OFF, OFF, OFF};
