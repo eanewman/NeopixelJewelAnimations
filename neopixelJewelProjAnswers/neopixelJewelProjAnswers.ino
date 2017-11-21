@@ -81,7 +81,7 @@ void allBlink(uint32_t color, long delayTimeInMs) {
 // 3. Display a single frame of an animation (this utility function will be useful for building more complicated animations)
 //    - set all of the colors on the neopixel using the colors parameter
 //    - pause for the amount of time given by the delayTimeInMs parameter
-void setPixelColors(uint32_t colors[], long delayTimeInMs) {
+void setPixelColors(const uint32_t colors[], long delayTimeInMs) {
   for (uint8_t pixelIndex = 0; pixelIndex < NUM_JEWEL_PIXELS; pixelIndex++) {
     jewel.setPixelColor(pixelIndex, colors[pixelIndex]);
   }
