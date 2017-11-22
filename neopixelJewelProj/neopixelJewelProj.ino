@@ -74,7 +74,7 @@ void heartBlink(uint32_t color, long delayTimeInMs) {
 
 // 2. Use the heartBlink() function to simulate a heartbeat 
 //    - two beats each lasting a third of the given delay time
-//    - pause for the final third of the delay time
+//    - pause for the full delay time
 void heartbeat(uint32_t color, long delayTimeInMs) {
   
 }
