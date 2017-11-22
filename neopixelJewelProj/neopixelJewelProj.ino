@@ -32,61 +32,40 @@ void setup() {
   jewel.show(); // initialize all pixels to 'off'
 }
 
-
-// *************************************************************************************
-// main execution loop -- this is the code that your arduino will run
-// *************************************************************************************
 void loop() {
   // experiment with the brightness value here! 
   // you can also tinker with different brightness values in your animations
   jewel.setBrightness(10);
 
   // call your animations here!
-
+  
 }
-// *************************************************************************************
-
 
 // -------------------------------------------------------------------------------------
 // I. Warm up
 
 // 1. Turn all pixels the color that was passed in
 void setPixelsSingleColor(uint32_t color) {
-  
+
 }
 
-// 2. Make all the pixels blink once using allOn()
+// 2. Make all the pixels blink once 
 void allBlink(uint32_t color, long delayTimeInMs) {
-  
+
 }
 
-// 3. Display a single frame of an animation (this utility function will be useful for building more complicated animations)
+// -------------------------------------------------------------------------------------
+// II. Utility Function
+
+// 1. Display a single frame of an animation (this utility function will be useful for building more complicated animations)
 //    - set all of the colors on the neopixel using the colors parameter
 //    - pause for the amount of time given by the delayTimeInMs parameter
 void setPixelColors(const uint32_t colors[], long delayTimeInMs) {
 
 }
 
-// 4. Example function using setPixelColors()
-// Sends a color from one side of the jewel, through the middle, to the other side.
-// Try calling this function in the main execution loop!
-void wave(uint32_t color, long delayTimeInMs) {
-  // set pixels 1, 2
-  uint32_t firstStripeColors[7] = {OFF, color, color, OFF, OFF, OFF, OFF};
-  setPixelColors(firstStripeColors, delayTimeInMs);
-
-  // set pixels 0, 3, 6
-  uint32_t secondStripeColors[7] = {color, OFF, OFF, color, OFF, OFF, color};
-  setPixelColors(secondStripeColors, delayTimeInMs);
-
-  // set pixels 4, 5
-  uint32_t thirdStripeColors[7] = {OFF, OFF, OFF, OFF, color, color, OFF};
-  setPixelColors(thirdStripeColors, delayTimeInMs);
-}
-
-
 // -------------------------------------------------------------------------------------
-// II. Heartbeat
+// III. Heartbeat
 
 // 1. Display a heart shape with the pixels and make them blink once
 void heartBlink(uint32_t color, long delayTimeInMs) {
@@ -95,14 +74,14 @@ void heartBlink(uint32_t color, long delayTimeInMs) {
 
 // 2. Use the heartBlink() function to simulate a heartbeat 
 //    - two beats each lasting a third of the given delay time
-//    - pause
+//    - pause for the final third of the delay time
 void heartbeat(uint32_t color, long delayTimeInMs) {
   
 }
 
 
 // -------------------------------------------------------------------------------------
-// III. Explosion!
+// IV. Explosion!
 
 // 1. Blink the center pixel to animate the initial part of an explosion
 void centerBlink(uint32_t color, long delayTimeInMs) {
@@ -123,7 +102,7 @@ void explosion(uint32_t color) {
 
 
 // -------------------------------------------------------------------------------------
-// IV. Create an exploding heart animation! 
+// V. Create an exploding heart animation! 
 
 // Use your heartbeat() and explosion() functions in the main execution loop to create
 // a heartbeat that increases in tempo until it explodes!
@@ -139,7 +118,8 @@ void explosion(uint32_t color) {
 
 // Create your own animations!! Here are some ideas:
 // - blink a single pixel all the way around the ring of the jewel
-// - tricolor wave: same as the wave function above, but with 3 colors that wrap after they move through the jewel to the other side
+// - do the 'wave': blink 2 adjacent pixels on the outside, then the 3 next to them, and then the 2 on the opposite side.
+// - tricolor wave: same as the wave function above, but with 3 colors that wrap after they move through the jewel to the other side.
 // - rotate the RAINBOW array (or an array defined with your colors of choice) around the jewel ring (hint: the modulo operator helps!)
 
 
