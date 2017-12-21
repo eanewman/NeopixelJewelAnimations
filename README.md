@@ -9,8 +9,13 @@ This project was originally used in a Girls Who Code workshop at Autodesk, Inc. 
 ## Helpful links
 
 Arduino basics: https://www.arduino.cc/en/Tutorial/Foundations
+
 Neopixel best practices (safety first!): https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices
+
 Setting up a Neopixel Jewel: https://github.com/MakerDen/Maker-Den-NETMF/wiki/NeoPixel-Jewel-Setup
+
 Intro to Arduino Neopixel library use: https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library
+
 Debugging problems encountered while uploading sketches: https://www.arduino.cc/en/Guide/Troubleshooting#upload
+
 Adafruit Neopixel Uberguide: https://cdn-learn.adafruit.com/downloads/pdf/adafruit-neopixel-uberguide.pdf
